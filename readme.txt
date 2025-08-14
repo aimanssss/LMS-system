@@ -1,5 +1,5 @@
 === BinawebKu LMS ===
-Contributors: developer
+Contributors: WMA BinawebKu
 Tags: lms, courses
 Requires at least: 6.5
 Tested up to: 6.5
