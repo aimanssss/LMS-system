@@ -17,7 +17,28 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-require_once __DIR__ . '/vendor/autoload.php';
+// Load the Composer autoloader if it exists. Some distributions of the plugin
+// may not ship with the `vendor` directory (e.g. when installed directly from
+// source). In that case we fall back to a simple PSR-4 autoloader so the plugin
+// can still bootstrap without Composer.
+$autoload = __DIR__ . '/vendor/autoload.php';
+if (file_exists($autoload)) {
+    require_once $autoload;
+} else {
+    spl_autoload_register(function ($class) {
+        $prefix = 'Binawebku\\LMS\\';
+        $len    = strlen($prefix);
+        if (0 !== strncmp($prefix, $class, $len)) {
+            return;
+        }
+
+        $relative = substr($class, $len);
+        $file     = __DIR__ . '/src/' . str_replace('\\', '/', $relative) . '.php';
+        if (file_exists($file)) {
+            require_once $file;
+        }
+    });
+}
 
 use Binawebku\LMS\Setup\Activator;
 use Binawebku\LMS\Setup\Deactivator;
