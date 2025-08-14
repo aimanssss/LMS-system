@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name: BinawebKu LMS
- * Plugin URI: https://example.com
+ * Plugin URI: https://binawebpro.com
  * Description: Learning management system with admin dashboard.
  * Version: 0.1.0
- * Author: Example Author
+ * Author: WMA BinawebKu
  * Text Domain: binawebku-lms
  * Requires at least: 6.5
  * Requires PHP: 7.4
