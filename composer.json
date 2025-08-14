@@ -1,0 +1,13 @@
+{
+    "name": "binawebku/lms",
+    "description": "BinawebKu LMS plugin",
+    "type": "wordpress-plugin",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Binawebku\\LMS\\": "src/"
+        }
+    }
+}
